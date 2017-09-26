@@ -1,3 +1,20 @@
+#_________  ____________________________   ___ ___    _____    ________  _______________   ____
+#\_   ___ \ \_____  \__    ___/\_   ___ \ /   |   \  /  _  \   \______ \ \_   _____/\   \ /   /
+#/    \  \/  /   |   \|    |   /    \  \//    ~    \/  /_\  \   |    |  \ |    __)_  \   Y   /  
+#\     \____/    |    \    |   \     \___\    Y    /    |    \  |    `   \|        \  \     /   
+# \______  /\_______  /____|    \______  /\___|_  /\____|__  / /_______  /_______  /   \___/    
+#        \/         \/                 \/       \/         \/          \/        \/             
+
+#________________
+#< I like cotchas >
+#----------------
+#       \   ^__^
+#        \  (oo)\_______
+#           (__)\       )\/\
+#               ||---23 |
+#               ||     ||
+#You are on the Dev-OLED Branch of this repository.  This code may use different HTML, libraries and  settings.  Please review before uploading to your cotcha!
+
 # SecKC ESP8266 Captive Portal and Hacking Challenge
 > The purpose of this project was to create a small and cheap device that helps market and promote SecKC at industry events. The original concept was a device running a form of Wifi Karma, that would respond to all wifi requests and then once connected would serve a "Guerrilla Marketing" page about SecKC. In its first iteration I used a RaspberryPi Zero, running a series of scripts. However the price of the components needed made this a difficult project to "give to the people".  That is where the ESP8266 Came in. For about $5, anyone can make and deploy this device.
 ![logo](http://i.imgur.com/MSpAXfE.jpg)
@@ -12,6 +29,7 @@
 
 ## Table of Contents
 
+- [Libraries](#libraries)
 - [Parts List](#parts-list)
 - [Building Hardware](#hardware-construction)
 - [Firmware](#firmware)
@@ -19,6 +37,11 @@
 - [References](#references)
 
 
+## Libraries
+Note: Add these to your .piolibdeps directory before you try to build the source.
+
+* Adafruit_GFX [[Link]](https://github.com/adafruit/Adafruit-GFX-Library)
+* Adafruit_SSD1306 [[Link]](https://github.com/adafruit/Adafruit_SSD1306)
 
 ## Parts List
 * ESP8266 Module with 4MB of flash (I used the WeMos D1 Mini) [[Link]](https://www.aliexpress.com/item/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266-by/32642350275.html?spm=a2g0s.9042311.0.0.3Ae9zT)
@@ -73,19 +96,19 @@ You can add/edit the files in the "www" folder to your liking. (Files in the "ww
 This section is for the hackers.  Yep, I fucked mine up a couple times too.  Here is how you fix all the fuck ups. Change to the included ./esptool/ directory.  Don't worry, you can the esptool.py tool to completely erase the ESP8266 and start all over.  The steps would be:
 
 1. Connect the D1 Mini to your computer via the Micro-USB port and discover the serial port that is used. [Sparkfun](https://learn.sparkfun.com/tutorials/terminal-basics/connecting-to-your-device) has an excellent write-up on how to do this if you dont know already.
-2. Open your terminal and change to the included ./esptool/ directory and run: 
+2. Open your terminal and change to the included ./esptool/ directory and run:
 ```sh
 $ ./esptool.py erase_flash`
 ```
 
 
-*Note 1: This assumes you are using OSX or *nix based operating system. If you are running Windows, esptool runs fine but you will need python installed. There are several windows tools available, and a lot of people reference [this page](http://www.pratikpanda.com/completely-format-erase-esp8266-flash-memory/) as a good walk through, but I have not tested it.* 
+*Note 1: This assumes you are using OSX or *nix based operating system. If you are running Windows, esptool runs fine but you will need python installed. There are several windows tools available, and a lot of people reference [this page](http://www.pratikpanda.com/completely-format-erase-esp8266-flash-memory/) as a good walk through, but I have not tested it.*
 
 
 *Note 1: Depending on your setup, you may have to provide the serial port to esptool.  That would look like: `./esptool.py --port /dev/tty.wchusbserial1420 erase_flash`  (Assuming that /dev/tty.wchusbserial1420 is your serial port.  This will be dependant on your system)*
 
 3. Re-Upload the Firmware and SPIFFS content  
-4. High-five yourself for being super awesome 
+4. High-five yourself for being super awesome
 
 ## Game Completion:
 If you complete the game, you will get access to the SecKC-ESP8266 Console. ".
